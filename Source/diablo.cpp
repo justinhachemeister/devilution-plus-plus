@@ -2138,7 +2138,7 @@ LABEL_72:
 		ProcessLightList();
 		ProcessVisionList();
 	}
-	music_start((unsigned char)leveltype);
+	music_start(static_cast<_music_id>((unsigned char)leveltype));
 	//do
 	//	_LOBYTE(v19) = IncProgress();
 	while ( !IncProgress() );

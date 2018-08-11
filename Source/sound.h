@@ -29,7 +29,7 @@ int __fastcall sound_DirectSoundCreate(GUID *guid, IDirectSound **DS, int always
 void __cdecl sound_cleanup();
 void __fastcall sound_store_volume(char *key, int value);
 void __cdecl music_stop();
-void __fastcall music_start(int nTrack);
+void __fastcall music_start(_music_id nTrack);
 void __fastcall sound_disable_music(bool disable);
 int __fastcall sound_get_or_set_music_volume(int volume);
 int __fastcall sound_get_or_set_sound_volume(int volume);
@@ -43,7 +43,7 @@ extern int sound_inf; // weak
 extern char gbMusicOn; // weak
 extern char gbSoundOn; // weak
 extern char gbDupSounds; // weak
-extern int sgnMusicTrack;
+extern _music_id sgnMusicTrack;
 extern char *sgszMusicTracks[6];
 extern RECT8 QSRect[2]; /* psx version? */
 

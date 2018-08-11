@@ -9,7 +9,7 @@ int mainmenu_inf = 0x7F800000; // weak
 
 /* rdata */
 
-int menu_music_track_id = 5; // idb
+_music_id menu_music_track_id = _music_id::TMUSIC_INTRO; // idb
 
 struct mainmenu_cpp_init
 {
@@ -23,16 +23,17 @@ struct mainmenu_cpp_init
 
 void __cdecl mainmenu_refresh_music()
 {
-	int v0; // eax
+	_music_id v0; // eax
 
 	music_start(menu_music_track_id);
 	v0 = menu_music_track_id;
 	do
 	{
-		if ( ++v0 == 6 )
-			v0 = 0;
+		v0 = static_cast<_music_id>(static_cast<unsigned int>(v0) + 1);
+		if ( v0 == _music_id::NUM_MUSIC )
+			v0 = _music_id::TMUSIC_TOWN;
 	}
-	while ( !v0 || v0 == 1 );
+	while ( v0 == _music_id::TMUSIC_TOWN || v0 == _music_id::TMUSIC_L1 );
 	menu_music_track_id = v0;
 }
 
