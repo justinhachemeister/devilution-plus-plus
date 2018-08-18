@@ -19,8 +19,8 @@ int sound_inf = 0x7F800000; // weak
 char gbMusicOn = 1; // weak
 char gbSoundOn = 1; // weak
 char gbDupSounds = 1; // weak
-int sgnMusicTrack = 6;
-char *sgszMusicTracks[6] =
+_music_id sgnMusicTrack = _music_id::NUM_MUSIC;
+char *sgszMusicTracks[_music_id::NUM_MUSIC] =
 {
   "Music\\DTowne.wav",
   "Music\\DLvlA.wav",
@@ -432,11 +432,11 @@ void __cdecl music_stop()
 		SFileDdaEnd(sgpMusicTrack);
 		SFileCloseFile(sgpMusicTrack);
 		sgpMusicTrack = 0;
-		sgnMusicTrack = 6;
+		sgnMusicTrack = _music_id::NUM_MUSIC;
 	}
 }
 
-void __fastcall music_start(int nTrack)
+void __fastcall music_start(_music_id nTrack)
 {
 	//int v1; // esi
 	//int v2; // eax
@@ -468,7 +468,7 @@ void __fastcall sound_disable_music(bool disable)
 	{
 		music_stop();
 	}
-	else if ( sgnMusicTrack != 6 )
+	else if ( sgnMusicTrack != _music_id::NUM_MUSIC )
 	{
 		music_start(sgnMusicTrack);
 	}

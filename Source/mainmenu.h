@@ -21,6 +21,6 @@ extern int mainmenu_inf; // weak
 
 /* rdata */
 
-extern int menu_music_track_id; // idb
+extern _music_id menu_music_track_id; // idb
 
 #endif /* __MAINMENU_H__ */

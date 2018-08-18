@@ -226,7 +226,7 @@ void __fastcall gamemenu_music_volume(int a1)
 		gbMusicOn = 1;
 		sound_get_or_set_music_volume(0);
 LABEL_10:
-		music_start((unsigned char)leveltype);
+		music_start(static_cast<_music_id>((unsigned char)leveltype));
 		goto LABEL_11;
 	}
 	v1 = gamemenu_slider_music_sound(sgOptionMenu);

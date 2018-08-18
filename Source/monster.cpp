@@ -4105,7 +4105,7 @@ void __cdecl DoEnding()
 	gbMusicOn = 1;
 	v3 = sound_get_or_set_music_volume(1);
 	sound_get_or_set_music_volume(0);
-	music_start(2);
+	music_start(_music_id::TMUSIC_L2);
 	loop_movie = 1;
 	play_movie("gendata\\loopdend.smk", 1);
 	loop_movie = 0;
